@@ -1,0 +1,21 @@
+# Apache用のバッファリング無効化設定
+<IfModule mod_env.c>
+    SetEnv no-gzip 1
+    SetEnv dont-vary 1
+</IfModule>
+
+<IfModule mod_deflate.c>
+    SetEnvIfNoCase Request_URI \.php$ no-gzip dont-vary
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header set X-Accel-Buffering "no"
+</IfModule>
+
+# PHP設定のオーバーライド
+<IfModule mod_php.c>
+    php_value output_buffering 0
+    php_value zlib.output_compression 0
+    php_value implicit_flush 1
+    php_value max_execution_time 0
+</IfModule>
