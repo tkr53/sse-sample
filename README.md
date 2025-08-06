@@ -248,10 +248,6 @@ pdfService := service.NewPDFService("./generated")
 
 MIT License
 
-## 作者
-
-[Your Name]
-
 ## 貢献
 
 プルリクエストを歓迎します。大きな変更の場合は、まずissueを開いて変更内容について議論してください。
